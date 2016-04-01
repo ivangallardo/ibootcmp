@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+	<section id="msg" class="hidden">Hello World!</section>
+	<button type="button" id="btn" onclick="loadDoc()">Boton</button>
+</body>
+	
+<script>
+	window.onload = function(){
+	document.getElementById('msg').setAttribute("class","loaded fadein");}
+
+	function loadDoc() {
+  		let xhttp = new XMLHttpRequest();
+  			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+			    let result=JSON.parse(xhttp.responseText);
+				document.getElementById("msg").innerHTML =  result.value.joke; /*si pongo xhttp.responseText me aparece todo el json*/
+			 }
+			};
+	  const url = xhttp.open("GET", "http://api.icndb.com/jokes/random", true);
+	  xhttp.send();
+	};
+</script>
+</html>
+    

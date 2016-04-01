@@ -1,0 +1,19 @@
+.fadein {   
+        opacity: 1;  
+        -moz-transition: opacity 5.5s;
+        -webkit-transition: opacity 5.5s;
+        -o-transition: opacity 5.5s;
+        transition: opacity 5.5s;
+    }
+    
+.hidden{
+        opacity: 0;
+    }
+
+#msg{
+        text-align: center;
+    }
+
+#msg.loaded .fadein {
+        opacity: 1;
+    }
